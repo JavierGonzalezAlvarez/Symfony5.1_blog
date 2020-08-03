@@ -12,11 +12,15 @@
     <h1>Hello {{ controller_name }}! ✅</h1>
     <h2>Hello {{ nombre }}! ✅</h2>
     <h2>Hello {{ apellidos }}! ✅</h2>
+    
+    {% for message in app.flashes('mensaje') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp_7.4.8/htdocs/appblog/appblog/src/Controller/RegistroController.php'|file_link(0) }}">src/Controller/RegistroController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp_7.4.8/htdocs/appblog/appblog/templates/registro/index.html.twig'|file_link(0) }}">templates/registro/index.html.twig</a></code></li>
-    </ul>
+    {{ form(formulario) }}
+   
+    
 </div>
 {% endblock %}
