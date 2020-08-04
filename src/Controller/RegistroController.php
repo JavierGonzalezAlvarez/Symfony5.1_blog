@@ -11,12 +11,19 @@ use App\Entity\User;
 //importar la libreria request
 use Symfony\Component\HttpFoundation\Request;
 
+//importamos la interface para la contraseña
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+
 class RegistroController extends AbstractController
 {
+
+    //private $passwordEncoder;
+
     /**
      * @Route("/registro", name="registro")
      */
-    public function index(Request $request)
+    public function index(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $user = new User;   //objeto de la clase user                     
         $user->setRoles(['ROLE_USER']);   //tipo array
@@ -31,7 +38,19 @@ class RegistroController extends AbstractController
             $form->getData();
             //pasar los datos del formulario a una variable
             $grabar = $form->getData();        
-            //Gruadar con Doctrine
+
+            //$password_form = $form->get("password")->getData();
+            $password_form = $form['password']->getData();
+
+            $user->setPassword($passwordEncoder->encodePassword(
+                //pasamos dos parametros
+                             $user,
+                             $password_form
+            ));
+
+            //$user->setPasswrod->($this-> $passwordEncoder('password'));
+
+            //Guardar con Doctrine
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($grabar);
             $entityManager->flush();            
