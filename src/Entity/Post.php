@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
+
+    //definimos constantes    
+    const REGISTRO_EXITOSO = 'Se ha registrado el post';    
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -119,6 +124,34 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="post")
      */
     private $user;
+
+  //constructor
+  public function __construct()
+  {
+      $this->likes = '';
+      $this->fecha_publicacion = new \DateTime();
+  }
+
+
+    /**
+     * @return mixed
+     */
+
+  public function getUser()
+  {
+      return $this->user;
+  }
+
+    /**
+     * @param mixed $user
+     */
+
+  public function setUser($user): void
+  {
+      $this->user = $user;
+
+      //return $this;
+  }
 
 
 

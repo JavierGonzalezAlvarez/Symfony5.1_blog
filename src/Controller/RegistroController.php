@@ -17,9 +17,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistroController extends AbstractController
 {
-
-    //private $passwordEncoder;
-
     /**
      * @Route("/registro", name="registro")
      */
@@ -70,7 +67,7 @@ class RegistroController extends AbstractController
             //return $this->redirectToRoute('task_success');
         }
         
-        //renderizar un formualrio, despues del createview()
+        //renderizar un formulario, despues del createview()
         return $this->render('registro/index.html.twig', [
             'controller_name' => 'Hola mundo',
             'nombre' => 'javier',
