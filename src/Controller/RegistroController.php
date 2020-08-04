@@ -26,8 +26,11 @@ class RegistroController extends AbstractController
     public function index(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $user = new User;   //objeto de la clase user                     
-        $user->setRoles(['ROLE_USER']);   //tipo array
-        $user->setBaneado(False);  //asigno el valor false en la grabacion. Campo obligatorio  
+        
+        //tengo un constructor en user.php, así que quito estas dos lineas de abajo
+        //$user->setRoles(['ROLE_USER']);   //tipo array
+        //$user->setBaneado(False);  //asigno el valor false en la grabacion. Campo obligatorio  
+        
         $form = $this->createForm(UserType::class, $user);                
 
         $form->handleRequest($request);        
@@ -54,7 +57,14 @@ class RegistroController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($grabar);
             $entityManager->flush();            
-            $this->addFlash('mensaje', 'Tus cambios se han guardado!');
+            //$this->addFlash('mensaje', 'Tus cambios se han guardado!');
+            //mejor meterlo en una constante
+            $this->addFlash('mensaje', User::REGISTRO_EXITOSO);
+            //Esta ruta está en LoginformAutheticator.php
+            //return $this->redirectToRoute('app_login');
+
+            //Esta ruta está en Dashboardcontrollert.php
+            return $this->redirectToRoute('dashboard');
 
             //ir a otra pagina
             //return $this->redirectToRoute('task_success');

@@ -11,6 +11,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+    
+    //definimos constantes    
+    const REGISTRO_EXITOSO = 'Se ha registrado exitosamente';    
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -70,8 +74,6 @@ class User implements UserInterface
 
         return $this;
     }
-
- 
 
     public function getId(): ?int
     {
@@ -175,6 +177,13 @@ class User implements UserInterface
      */
     private $profesion;
 
+
+    //constructor
+    public function __construct()
+    {
+        $this->baneado = false;
+        $this->roles =['ROLE_USER'];        
+    }
 
 
 
