@@ -17,6 +17,7 @@ class DashboardController extends AbstractController
     public function index()
     {        
         $user = $this->getUser();  //OBTENGO AL USUARIO ACTUALMENTE LOGUEADO
+        //le digo que id queiro consultar
         //$id = $this->setId = 2;
         
         //traer los post de la base de datos
