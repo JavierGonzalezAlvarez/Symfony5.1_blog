@@ -14,7 +14,6 @@ class Post
     //definimos constantes    
     const REGISTRO_EXITOSO = 'Se ha registrado el post';    
 
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -52,6 +51,11 @@ class Post
         return $this->id;
     }
 
+    public function setId(): ?int
+    {
+        return $this->id;
+    }
+
     public function getTitulo(): ?string
     {
         return $this->titulo;
@@ -78,7 +82,7 @@ class Post
 
     public function getFoto(): ?string
     {
-        return $this->foto;
+        return $this->foto;        
     }
 
     public function setFoto(?string $foto): self
@@ -132,7 +136,7 @@ class Post
       $this->fecha_publicacion = new \DateTime();
   }
 
-
+//he de poner estos valoers para relacionar el usuario con post
     /**
      * @return mixed
      */
@@ -148,9 +152,7 @@ class Post
 
   public function setUser($user): void
   {
-      $this->user = $user;
-
-      //return $this;
+      $this->user = $user;      
   }
 
 
