@@ -7,6 +7,8 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
+
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
@@ -35,4 +37,17 @@ class Kernel extends BaseKernel
             (require $path)($routes->withPath($path), $this);
         }
     }
+
+    
+    // app/AppKernel.php
+    public function registerBundles()
+    {
+        return [
+            // ...
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            // ...
+        ];
+    }
+    
+
 }
