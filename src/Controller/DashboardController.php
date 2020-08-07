@@ -10,7 +10,8 @@ use App\Entity\Post;
 use App\Entity\Comentarios;
 
 // Include paginator interface
-use Knp\Component\Pager\PaginatorInterface;
+//use Knp\Component\Pager\PaginatorInterface;
+
 
 class DashboardController extends AbstractController
 {
@@ -18,12 +19,12 @@ class DashboardController extends AbstractController
      * @Route("/dashboard", name="dashboard")
      */
      
-    //public function index()
-    public function index(PaginatorInterface $paginator, Request $request)
+    public function index()
+    //public function index(PaginatorInterface $paginator, Request $request)
     {        
         $user = $this->getUser();  //OBTENGO AL USUARIO ACTUALMENTE LOGUEADO
         
-        /*
+        
         //le digo que id queiro consultar
         //$id = $this->setId = 2;        
 
@@ -40,20 +41,19 @@ class DashboardController extends AbstractController
             'post' => $consulta,                                    
             //pasar un registro seleccionado
                 //'id' => $id,
-                //'titulo' => $consulta->getTitulo()
-                                  
+                //'titulo' => $consulta->getTitulo()                                  
         ]);
 
-        */
-
+        
+        /*
         $entityManager = $this->getDoctrine()->getManager();  
         $query = $entityManager
             ->getRepository(Post::class)        
             ->BuscarTodosLosPost_dql_paginator();   // funcion personalizada    
         $pagination = $paginator->paginate(            
-                $query=BuscarTodosLosPost_paginator(), /* query NOT result */
-                $request->query->getInt('page', 1), /*page number*/
-                2 /*limit per page*/
+                $query=BuscarTodosLosPost_dql_paginator(), 
+                $request->query->getInt('page', 1), 
+                2 
             );
 
         return $this->render('dashboard/index.html.twig', [
@@ -61,7 +61,9 @@ class DashboardController extends AbstractController
             'post' => $query,         
             //pasamos el paginator               
             ['pagination' => $pagination]
-            ]);   
+            ]);
+
+        */
 
     }
 }

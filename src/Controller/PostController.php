@@ -87,4 +87,51 @@ class PostController extends AbstractController
             'formulario_post' => $form->createview()
         ]);
     }
+
+
+    //Ver 1 post de un usuario
+
+    /**
+     * @Route("/ver_post/{id}", name="verpost")
+     */
+    public function ver_post($id)
+    {
+        //recojo el usuario
+        $user = $this->getUser();                      
+
+        $em = $this->getDoctrine()->getManager();
+        $post = $em
+            ->getRepository(Post::class)
+            ->find($id);
+
+        return $this->render('post/ver_post.html.twig', [                        
+            'post' => $post, 
+            'id' => $id,
+            'titulo' => $post->getTitulo(),     
+            'contenido' => $post->getContenido()     
+        ]);                         
+    }
+
+    //Ver todos los post de un usuario
+      /**
+     * @Route("/ver_todos_post/", name="vertodospost")
+     */
+    public function ver_todos_post()
+    {
+        //recojo el usuario
+        $user = $this->getUser();                      
+
+        $em = $this->getDoctrine()->getManager();
+        $post = $em
+            ->getRepository(Post::class)
+            ->findBy(['user'=>$user]);
+
+        return $this->render('post/ver_todos_post.html.twig', [                        
+            'post' => $post             
+        ]);                         
+    }
+
+
+
+
 }

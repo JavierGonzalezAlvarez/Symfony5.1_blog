@@ -1,0 +1,8 @@
+
+{{ dump(post) }}
+
+<ul>    
+ {% for i in post %}
+    <li> {{ i.id }} - {{ i.titulo|e }} - {{ i.contenido|e }} </li>
+ {% endfor %}    
+</ul>

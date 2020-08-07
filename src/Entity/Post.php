@@ -141,6 +141,7 @@ class Post
      * @return mixed
      */
 
+
   public function getUser()
   {
       return $this->user;
