@@ -24,7 +24,8 @@ class DashboardController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();                
         $consulta = $entityManager
             ->getRepository(Post::class)
-            ->findAll();
+            //->findAll();
+            ->BuscartodosLosPost();
             //->find($id);            
         
         return $this->render('dashboard/index.html.twig', [
