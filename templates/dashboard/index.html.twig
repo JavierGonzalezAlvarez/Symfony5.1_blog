@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+
+{% block title %}    
+    {{ parent() }} 
+{% endblock %}
+
 
 {% block body %}
+    {{ parent() }} 
+ 
 
-{{ dump(post) }}
+    <div class="example-wrapper">
+        <h1> Dashboard Listado de Post </h1>    
 
-<div class="example-wrapper">
-    <h1> Listado de Post </h1>    
-    <ul>        
-    {% for i in post %}
-            <li> {{ i.titulo|e }} - {{ i.contenido|e }} </li>                                    
-        {% endfor %}
-    </ul>
-</div>
+        <ul>        
+            {% for i in post %}
+                    <li> {{ i.titulo|e }} - {{ i.contenido|e }} </li>                                    
+            {% endfor %}
+        </ul>
 
-
+    </div>
 
 {% endblock %}
