@@ -39,11 +39,11 @@ class PostType extends AbstractType
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf',
-                        ],
-                        'mimeTypesMessage' => 'Por favor sube solo fichero en formato PDF',
+                        //'mimeTypes' => [
+                        //    'application/pdf',
+                        //    'application/x-pdf',
+                        //],
+                        //'mimeTypesMessage' => 'Por favor sube solo fichero en formato PDF',
                     ])
                 ],
             ])

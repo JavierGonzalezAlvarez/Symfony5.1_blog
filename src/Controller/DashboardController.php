@@ -23,8 +23,7 @@ class DashboardController extends AbstractController
     //public function index(PaginatorInterface $paginator, Request $request)
     {        
         $user = $this->getUser();  //OBTENGO AL USUARIO ACTUALMENTE LOGUEADO
-        
-        
+                
         //le digo que id queiro consultar
         //$id = $this->setId = 2;        
 

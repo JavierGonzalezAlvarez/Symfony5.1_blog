@@ -4,16 +4,27 @@
     {{ parent() }} 
 {% endblock %}
 
-
 {% block body %}
     {{ parent() }}
- 
+
+    {{ dump(post) }}
+
     <div class="example-wrapper">
         <h1> Dashboard Listado de Post </h1>    
 
         <ul>        
             {% for i in post %}
-                    <li> {{ i.titulo|e }} - {{ i.contenido|e }} </li>                                    
+                    <li> {{ i.nombre|e }} - {{ i.titulo|e }} - {{ i.contenido|e }} - {{ i.foto }}  </li>                                    
+                <div>
+                    <img class="rounded" src="{{ asset('uploads/fotos/' ~ i.foto) }}" width="150px" height="150px">
+                    <a href="{{ asset('uploads/fotos/' ~ i.foto) }}" target="_blank">Ver PDF</a>
+                </div>
+
+                <div>
+                    <iframe src="{{ asset('uploads/fotos/' ~ i.foto) }}" width="150px" height="150px">                        
+                    </iframe>
+                </div>
+
             {% endfor %}
         </ul>
 

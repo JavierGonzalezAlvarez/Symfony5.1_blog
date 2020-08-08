@@ -40,3 +40,6 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/post_nuevo, roles: [ROLE_ADMIN,ROLE_USER] }
+        - { path: ^/ver_todos_post, roles: [ROLE_ADMIN,ROLE_USER] }
+        - { path: ^//ver_post, roles: [ROLE_ADMIN,ROLE_USER] }
