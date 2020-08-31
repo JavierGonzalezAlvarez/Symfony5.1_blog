@@ -12,6 +12,5 @@ return [
     Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
-    //paginator
-    //Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],    
+    FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
 ];

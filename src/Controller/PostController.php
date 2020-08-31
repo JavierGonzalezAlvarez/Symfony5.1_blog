@@ -97,7 +97,6 @@ class PostController extends AbstractController
 
     }
 
-
         //Ver 1 post de un usuario
 
         /**

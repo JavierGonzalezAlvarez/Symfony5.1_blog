@@ -68,10 +68,7 @@ class RegistroController extends AbstractController
         }
         
         //renderizar un formulario, despues del createview()
-        return $this->render('registro/index.html.twig', [
-            'controller_name' => 'Hola mundo',
-            'nombre' => 'javier',
-            'apellidos' => 'gonzalez alvarez',
+        return $this->render('registro/index.html.twig', [                        
             'formulario' => $form->createview()
         ]);             
     }

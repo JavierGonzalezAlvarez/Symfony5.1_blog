@@ -6,12 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 //para importar los datos de la entidad
 use App\Entity\Post;
-//use App\Entity\User;
 use App\Entity\Comentarios;
 
 // Include paginator interface
 //use Knp\Component\Pager\PaginatorInterface;
-
 
 class DashboardController extends AbstractController
 {

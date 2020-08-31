@@ -1,27 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}    
-    {{ parent() }} 
+{{ parent() }} 
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
-
-    {{ dump(post) }}
+{{ parent() }}    
 
     <div class="example-wrapper">
-        <h1> Dashboard Listado de Post </h1>    
+        <h1> Listado de Post - Página Principal</h1>    
 
         <ul>        
             {% for i in post %}
                     <li> {{ i.nombre|e }} - {{ i.titulo|e }} - {{ i.contenido|e }} - {{ i.foto }}  </li>                                    
                 <div>
-                    <img class="rounded" src="{{ asset('uploads/fotos/' ~ i.foto) }}" width="150px" height="150px">
+                    <img class="rounded" src="{{ asset('uploads/fotos/' ~ i.foto) }}" width="150px" height="100px">
                     <a href="{{ asset('uploads/fotos/' ~ i.foto) }}" target="_blank">Ver PDF</a>
                 </div>
-
+                </hr>
+                <h2>Imagen con marco Iframe</h2>
                 <div>
-                    <iframe src="{{ asset('uploads/fotos/' ~ i.foto) }}" width="150px" height="150px">                        
+                    <iframe src="{{ asset('uploads/fotos/' ~ i.foto) }}" width="150px" height="100px">                        
                     </iframe>
                 </div>
 

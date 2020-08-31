@@ -40,12 +40,12 @@ h1,h2,h3,h4,h5,h6{
 
 .navbar{
     background-color: #f65c78 !important;
-    font-family: signikabold;
+    /*font-family: signikabold;/*/
     font-size: 1.5em;
 }
 
 .navbar-brand{
-    font-family: remachine_script_personal_uRg;
+    /*font-family: remachine_script_personal_uRg;*/
     font-size: 2em;
     color: #ffd271 !important;
 }

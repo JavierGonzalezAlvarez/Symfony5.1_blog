@@ -1,7 +1,16 @@
 
+{% extends 'base.html.twig' %}
 
-{{ dump(post) }}
+{% block title %}
+    Post nuevos
+{% endblock %}
 
-<ul>    
-    {{ id }} - {{ titulo|e }} - {{ contenido|e }}
-</ul>
+
+{% block body %}
+{{ parent() }}
+
+    <ul>    
+        {{ id }} - {{ titulo|e }} - {{ contenido|e }}
+    </ul>
+
+{% endblock %}

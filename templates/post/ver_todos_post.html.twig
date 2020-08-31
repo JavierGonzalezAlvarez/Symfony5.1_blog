@@ -2,13 +2,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ parent() }}
-
-      {{ dump(post) }}
+{{ parent() }}      
 
       <ul>    
-      {% for i in post %}
-         <li> {{ i.id }} - {{ i.titulo|e }} - {{ i.contenido|e }} </li>
-      {% endfor %}    
+         {% for i in post %}
+            <li> {{ i.id }} - {{ i.titulo|e }} - {{ i.contenido|e }} </li>
+         {% endfor %}    
       </ul>
+      
 {% endblock %}
